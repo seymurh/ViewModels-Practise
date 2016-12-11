@@ -1,0 +1,19 @@
+﻿@model PaymentViewModelBase
+<div class="row">
+    <form>
+        
+        <input type="hidden" asp-for="Id" />
+        @if (Model is CashPaymentViewModel)
+        {
+            @Html.Partial("CashPaymentPartial", Model)
+        }
+        else if (Model is BankPaymentViewModel)
+        {
+            @Html.Partial("BankPaymentPartial", Model)
+        }
+        <div class="form-group">
+            <label asp-for="Amount" class="control-label">Amount</label>
+            <input type="text" asp-for="Amount" class="form-control" />
+        </div>
+    </form>
+</div>
